@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:icon="@drawable/ic_history"
+        android:key="switch"
+        android:title="Switch Preference"
+        android:summary="Click to switch on or off"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:icon="@drawable/ic_help"
+        android:key="switchh"
+        android:title="Switch Preference"
+        android:summary="Click to switch on or off"
+        android:defaultValue="true"/>
+    <Preference
+        android:icon="@drawable/ic_settings"
+        android:summary="Click to start an activity"
+        android:title="Preference">
+        <intent
+            android:action="com.chikeandroid.settingsscreendemo.SETTING_START_ACTIVITY"
+            android:targetClass="com.chikeandroid.settingsscreendemo.MyActivity"
+            android:targetPackage="com.chikeandroid.settingsscreendemo" />
+    </Preference>
+    <Preference
+        android:icon="@drawable/ic_logout"
+        android:summary="Click to start an activity"
+        android:title="Preference">
+        <intent
+            android:action="com.chikeandroid.settingsscreendemo.SETTING_START_ACTIVITY"
+            android:targetClass="com.chikeandroid.settingsscreendemo.MyActivity"
+            android:targetPackage="com.chikeandroid.settingsscreendemo" />
+    </Preference>
+</PreferenceScreen>

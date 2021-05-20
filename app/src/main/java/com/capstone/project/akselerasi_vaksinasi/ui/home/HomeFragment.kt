@@ -1,6 +1,7 @@
 package com.capstone.project.akselerasi_vaksinasi.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.capstone.project.akselerasi_vaksinasi.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +32,14 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        //--- hanya untuk pindah activity ke login, hapus jika sudah ada button Logout di Setting screen atau profil screen
+        textView.setOnClickListener {
+            auth = Firebase.auth
+            auth.signOut()
+            Log.d("user", "user sign out!")
+        }
+        // --- sampai sini
         return root
     }
 }

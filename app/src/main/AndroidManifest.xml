@@ -11,15 +11,16 @@
         android:theme="@style/Theme.Akselerasi_Vaksinasi">
         <activity
             android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation"></activity>
+            android:label="@string/title_activity_navigation" />
         <activity android:name=".ProfilActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegisterActivity" android:theme="@style/Theme.Akselerasi_Vaksinasi_NoBar"/>
+        <activity android:name=".LoginActivity"  android:theme="@style/Theme.Akselerasi_Vaksinasi_NoBar"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashscreenActivity" android:theme="@style/Theme.Akselerasi_Vaksinasi_NoBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

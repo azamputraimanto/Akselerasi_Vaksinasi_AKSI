@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_vaksin" />
 
     <fragment
-        android:id="@+id/navigation_setting"
-        android:name="com.capstone.project.akselerasi_vaksinasi.ui.setting.SettingFragment"
-        android:label="@string/title_setting"
-        tools:layout="@layout/fragment_setting" />
+        android:id="@+id/navigation_profil"
+        android:name="com.capstone.project.akselerasi_vaksinasi.ui.profil.ProfilFragment"
+        android:label="@string/title_profil"
+        tools:layout="@layout/fragment_profil" />
 </navigation>

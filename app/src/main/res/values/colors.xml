@@ -15,4 +15,8 @@
     <color name="bottom">#1E81CE</color>
     <color name="startblue">#09C6DF</color>
     <color name="endblue">#0BCCE6</color>
+    <color name="startblue2">#1E81CE</color>
+    <color name="endblue2">#208DE2</color>
+    <color name="headings">#83B0D6D3</color>
+    <color name="greyyy">#E5E5E5</color>
 </resources>

@@ -13,4 +13,13 @@
     <string name="title_home">Home</string>
     <string name="title_vaksin">Vaksin</string>
     <string name="title_setting">Setting</string>
+    <string name="title_profil">Profil</string>
+
+    <string-array name="list_jenis_kelamin">
+        <item>Pilih Jenis Kelamin</item>
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+        <item>Lain-lain</item>
+    </string-array>
+
 </resources>

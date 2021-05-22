@@ -12,7 +12,6 @@
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation" />
-        <activity android:name=".ProfilActivity" />
         <activity android:name=".RegisterActivity" android:theme="@style/Theme.Akselerasi_Vaksinasi_NoBar"/>
         <activity android:name=".LoginActivity"  android:theme="@style/Theme.Akselerasi_Vaksinasi_NoBar"/>
         <activity android:name=".MainActivity" />

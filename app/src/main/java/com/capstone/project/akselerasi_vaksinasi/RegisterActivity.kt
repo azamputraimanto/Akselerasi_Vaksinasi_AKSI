@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.capstone.project.akselerasi_vaksinasi.databinding.ActivityRegisterBinding
 import com.capstone.project.akselerasi_vaksinasi.model.User
@@ -29,6 +31,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(view)
 
         register()
+        hideKeyboard()
+
+        binding.progressBar.visibility = View.INVISIBLE
 
 
         binding.eyeButton.setOnClickListener {
@@ -48,8 +53,20 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun hideKeyboard() {
+        binding.layoutRegister.setOnClickListener {
+            val view = this.currentFocus
+            if(view != null) {
+                val hide = this.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                hide.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        }
+    }
+
     fun register(){
+
         binding.buttonRegister.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
             val name = binding.edtName.text.toString()
             val password = binding.edtPass.text.toString()
             val email = binding.edtEmail.text.toString()
@@ -67,8 +84,8 @@ class RegisterActivity : AppCompatActivity() {
                 auth = Firebase.auth
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
+                        binding.progressBar.visibility = View.INVISIBLE
                         if (task.isSuccessful) {
-
                             database = Firebase.database("https://b21-cap0247.asia-southeast1.firebasedatabase.app/").reference
                             Log.d("db ref", database.toString())
                             val user = User(auth.uid.toString(), name, email)

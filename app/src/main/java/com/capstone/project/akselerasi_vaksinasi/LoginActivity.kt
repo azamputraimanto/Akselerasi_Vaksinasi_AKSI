@@ -38,11 +38,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding.txtDaftar.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
         hideKeyboard()
         login()
     }
@@ -65,8 +60,10 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.textPassword.text.toString()
 
             if(binding.textEmail.text.toString().isEmpty()){
+                binding.progressBar.visibility = View.INVISIBLE
                 binding.textEmail.setError("Field ini harus diisi!!")
             } else if(binding.textPassword.text.toString().isEmpty()){
+                binding.progressBar.visibility = View.INVISIBLE
                 binding.textPassword.setError("Field ini harus diisi!!")
             } else {
                 auth = Firebase.auth

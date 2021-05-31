@@ -1,100 +1,89 @@
 package com.capstone.project.akselerasi_vaksinasi.ui.profil
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.capstone.project.akselerasi_vaksinasi.R
-import com.capstone.project.akselerasi_vaksinasi.model.User
-import com.capstone.project.akselerasi_vaksinasi.toast
-import com.google.android.gms.common.api.ResultTransform
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.capstone.project.akselerasi_vaksinasi.LoginActivity
+import com.capstone.project.akselerasi_vaksinasi.databinding.FragmentProfilBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.fragment_profil.*
-import java.io.ByteArrayOutputStream
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class ProfilFragment : Fragment() {
 
-    private lateinit var imageUri : Uri
-    private val REQUEST_IMAGE_CAPTURE = 100
-    private lateinit var profilViewModel: ProfilViewModel
+    private lateinit var _binding: FragmentProfilBinding
+    private val binding get() = _binding!!
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profil, container, false)
+        _binding = FragmentProfilBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        getProfil()
+        logout()
+
+        return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun getProfil() {
+        database = Firebase.database.reference
+        auth = Firebase.auth
 
-        imgAvatar.setOnClickListener {
-            takePictureIntent()
-        }
-    }
+        val uid = auth.currentUser?.uid
 
-    private fun takePictureIntent() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { pictureIntent ->
-            pictureIntent.resolveActivity(activity?.packageManager!!)?.also {
-                startActivityForResult(pictureIntent, REQUEST_IMAGE_CAPTURE)
-            }
-        }
-    }
+        if (uid != null) {
+            database.child("users").child(uid).get().addOnSuccessListener {
+                Log.i("firebase", "Got value ${it.child("photoURL").value}")
+                var no = 0
+                 var name : String = it.child("name").value.toString()
+                 var email : String = it.child("email").value.toString()
+                 var institusi: String = it.child("inst").value.toString()
+                 var photo: String = it.child("photoURL").value.toString()
+                 var noPegawai: String =it.child("empnum").value.toString()
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-
-            uploadImageAndSaveUri(imageBitmap)
-        }
-    }
-
-    private fun uploadImageAndSaveUri(bitmap: Bitmap) {
-        val baos = ByteArrayOutputStream()
-        val storageRef = FirebaseStorage.getInstance()
-            .reference
-            .child("pics/${FirebaseAuth.getInstance().currentUser?.uid}")
-
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        val image = baos.toByteArray()
-
-        val upload = storageRef.putBytes(image)
-
-        progresBar.visibility = View.VISIBLE
-        upload.addOnCompleteListener { uploadTask ->
-            progresBar.visibility = View.INVISIBLE
-
-            if (uploadTask.isSuccessful) {
-                storageRef.downloadUrl.addOnCompleteListener { urlTask ->
-                    urlTask.result?.let {
-                        imageUri = it
-                        activity?.toast(imageUri.toString())
-
-                        imgAvatar.setImageBitmap(bitmap)
-                    }
+                binding.edtNama.text = name
+                binding.edtEmail.text = email
+                binding.edtNoPegawai.text = noPegawai
+                binding.edtinstitusi.text = institusi
+                context?.let { it1 ->
+                    Glide.with(it1)
+                        .load(photo)
+                        .apply(RequestOptions().override(55, 55))
+                        .into(binding.imgAvatar)
                 }
-            } else {
-                uploadTask.exception?.let {
-                    activity?.toast(it.message!!)
-                }
+            }.addOnFailureListener{
+                Log.e("firebase", "Error getting data", it)
             }
         }
 
     }
+
+    private fun logout() {
+        binding.txtLogout.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+
+
 }

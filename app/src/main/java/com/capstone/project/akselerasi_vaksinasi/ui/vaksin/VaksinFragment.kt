@@ -1,7 +1,5 @@
 package com.capstone.project.akselerasi_vaksinasi.ui.vaksin
 
-import android.app.Activity
-import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -94,7 +91,7 @@ class VaksinFragment : Fragment() {
 
                 val patient = Patient(regId, vax_manu, age_yrs.toInt(), sex, symptom0)
 
-                database = Firebase.database("https://b21-cap0247.asia-southeast1.firebasedatabase.app/").reference
+                database = Firebase.database.reference
                 database.child("patients").child(regId).setValue(patient)
                     .addOnSuccessListener {
                         Log.d("response", "add data to db successful")

@@ -78,105 +78,6 @@
                         android:background="@color/greyyy"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/Phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Nomer HP"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:id="@+id/edtPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="7dp"
-                        android:hint="+628xxxxxxxxxx"
-                        android:textSize="16sp"
-                        android:inputType="number"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/greyyy"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tanggalLahir"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textTanggalLahir"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Tanggal Lahir"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:id="@+id/edtTanggalLahir"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="7dp"
-                        android:hint="MM/DD/YYYY"
-                        android:textSize="16sp"
-                        android:inputType="date"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/greyyy"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/JenisKelamin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textJenisKelamin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Jenis Kelamin"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"/>
-
-                    <EditText
-                        android:id="@+id/edtJenisKelamin"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="7dp"
-                        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
-                        android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
-                        android:drawablePadding="8dp"
-                        android:inputType="text"
-                        android:hint="Pilih Jenis Kelamin"
-                        android:textSize="16sp"
-                        android:entries="@array/list_jenis_kelamin"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/greyyy"/>
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/Email"
@@ -211,30 +112,29 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Password"
+                    android:id="@+id/layout_noPegawai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textPassword"
+                        android:id="@+id/noPegawai"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Password"
+                        android:text="Nomor Pegawai"
                         android:textSize="12sp"
                         android:textColor="@color/black"/>
 
                     <TextView
-                        android:id="@+id/edtPassword"
+                        android:id="@+id/edtNoPegawai"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="7dp"
-                        android:hint="Password"
+                        android:hint="Nomor Pegawai"
                         android:textSize="16sp"
-                        android:inputType="textPassword"/>
-
+                        android:inputType="text"/>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
@@ -243,27 +143,27 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Alamat"
+                    android:id="@+id/layout_institusi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textAlamat"
+                        android:id="@+id/institusi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Alamat"
+                        android:text="Institusi / Lembaga"
                         android:textSize="12sp"
                         android:textColor="@color/black"/>
 
                     <TextView
-                        android:id="@+id/edtAlamat"
+                        android:id="@+id/edtinstitusi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="7dp"
-                        android:hint="Alamat"
+                        android:hint="Institusi / Lembaga"
                         android:textSize="16sp"
                         android:inputType="text"/>
                     <View
@@ -274,30 +174,16 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnUpdate"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="50dp"
-                android:layout_below="@id/profil"
-                android:background="@drawable/bg_input_menu"
-                android:text="Update"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="100dp"
-                android:layout_below="@id/btnUpdate"
-                android:background="@drawable/bg_input_menu"
                 android:text="Logout"
-                android:textStyle="bold" />
+                android:id="@+id/txtLogout"
+                android:layout_below="@id/profil"
+                android:gravity="center_horizontal"
+                android:layout_marginVertical="100dp"
+                android:textColor="#d62828"
+                android:textSize="16sp"/>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

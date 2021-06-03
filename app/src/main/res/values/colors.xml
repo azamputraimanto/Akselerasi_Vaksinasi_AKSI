@@ -19,4 +19,7 @@
     <color name="endblue2">#208DE2</color>
     <color name="headings">#83B0D6D3</color>
     <color name="greyyy">#E5E5E5</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTextPrimary">#3E3D3D</color>
+    <color name="colorPaleGrey">#eff3f6</color>
 </resources>

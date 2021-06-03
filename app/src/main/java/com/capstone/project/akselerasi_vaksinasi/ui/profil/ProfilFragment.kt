@@ -46,14 +46,15 @@ class ProfilFragment : Fragment() {
 
         val uid = auth.currentUser?.uid
 
+        Log.d("uid", uid.toString())
+
         if (uid != null) {
             database.child("users").child(uid).get().addOnSuccessListener {
-                Log.i("firebase", "Got value ${it.child("photoURL").value}")
-                var no = 0
+                Log.i("firebase", "Got value ${it.child("imgURL").value}")
                  var name : String = it.child("name").value.toString()
                  var email : String = it.child("email").value.toString()
                  var institusi: String = it.child("inst").value.toString()
-                 var photo: String = it.child("photoURL").value.toString()
+                 var photo: String = it.child("imgURL").value.toString()
                  var noPegawai: String =it.child("empnum").value.toString()
 
 
@@ -61,12 +62,12 @@ class ProfilFragment : Fragment() {
                 binding.edtEmail.text = email
                 binding.edtNoPegawai.text = noPegawai
                 binding.edtinstitusi.text = institusi
-                context?.let { it1 ->
-                    Glide.with(it1)
-                        .load(photo)
-                        .apply(RequestOptions().override(55, 55))
-                        .into(binding.imgAvatar)
-                }
+
+                Glide.with(requireContext())
+                    .load(photo)
+                    .apply(RequestOptions().override(55, 55))
+                    .into(binding.imgAvatar)
+
             }.addOnFailureListener{
                 Log.e("firebase", "Error getting data", it)
             }

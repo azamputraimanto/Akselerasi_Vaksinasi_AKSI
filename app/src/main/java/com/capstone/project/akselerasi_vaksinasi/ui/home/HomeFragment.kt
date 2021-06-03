@@ -46,13 +46,6 @@ class HomeFragment : Fragment() {
             textView.text = it
         })
 
-        //--- hanya untuk pindah activity ke login, hapus jika sudah ada button Logout di Setting screen atau profil screen
-        textView.setOnClickListener {
-            auth = Firebase.auth
-            auth.signOut()
-            Log.d("user", "user sign out!")
-        }
-        // --- sampai sini
 
         database = FirebaseDatabase.getInstance().getReference("patients")
         val options: FirebaseRecyclerOptions<Patient> = Builder<Patient>()

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -95,14 +95,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:background="#eff3f6"
+        android:layout_below="@+id/imageView">
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.viewpager.widget.ViewPager>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_home"/>
 
     </RelativeLayout>
 </RelativeLayout>

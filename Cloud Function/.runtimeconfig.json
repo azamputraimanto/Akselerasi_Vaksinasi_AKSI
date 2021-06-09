@@ -1,0 +1,8 @@
+{
+  "firebase": {
+    "projectId": "capstone-project-312804",
+    "databaseURL": "https://capstone-project-312804-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "storageBucket": "capstone-project-312804.appspot.com",
+    "locationId": "us-central"
+  }
+}

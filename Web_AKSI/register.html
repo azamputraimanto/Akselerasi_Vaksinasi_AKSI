@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AKSI</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+    <script src="assets\js\register.js"></script>
+    <link rel="stylesheet" href="assets\styles\style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><strong><a href="index.html" class="logo">AKSI</a></strong></li>
+                <li><a href="login.html">BACK TO LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h3>Register Here:</h3>
+        <div id="formcontainer">
+            <div id="formheader"></div>
+
+            <input type="email" placeholder="Email" id="email" class="inputan">
+            <input type="text" placeholder="Name" id="name" class="inputan">
+            <input type="text" placeholder="Employee Number" id="empnumb" class="inputan">
+            <input type="text" placeholder="Instance name" id="instance" class="inputan">
+            <input type="password" placeholder="Password" id="password" class="inputan"> <br> <br>
+            <strong>Upload your photo here:</strong>  <br>
+            <img src="https://via.placeholder.com/150" id = "img">
+            <input type="file" name="file" id="file" onchange="chooseFile(event); previewImage()"><br>
+            
+            <button onclick="signUp()" id="signUp"> Sign Up</button>
+        </div>
+    </main>
+</body>
+</html>

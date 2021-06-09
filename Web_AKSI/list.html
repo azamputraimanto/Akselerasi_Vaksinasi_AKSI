@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AKSI</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+    <script src="assets\js\logout.js"></script>
+    <script src="assets\js\database.js"></script>
+    <link rel="stylesheet" href="assets\styles\style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><strong><a href="dashboard.html" class="logo">AKSI</a></strong></li>
+                <li><a href="dashboard.html">DASHBOARD</a></li>
+                <li><a href="list.html">PATIENT LIST</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <button id="logOutButton" onclick="logOutNav()">LOG OUT</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table class="patient-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Registration ID</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Symptom</th>
+                <th>Vaccine</th>
+                <th>Prediction</th>
+              </tr>
+            </thead>
+            <tbody id = data>
+            </tbody>
+          </table>
+    </main>
+</body>
+</html>

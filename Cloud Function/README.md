@@ -1,3 +1,5 @@
+**The purpose of this function is to trigger the deployed ML Model to predict the KIPI of a patients when a new patients data (features) are inputted in the real time database**
+
 **Steps to Replicate:**
 
 1. Set a random (or make a new) directory in your PC as the firebase project directory.

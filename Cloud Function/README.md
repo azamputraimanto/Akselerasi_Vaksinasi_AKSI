@@ -1,4 +1,4 @@
-**The purpose of this function is to trigger the deployed ML Model to predict the KIPI of a patients when a new patients data (features) are inputted in the real time database**
+**The purpose of this function is to trigger the deployed ML Model to predict the KIPI of a patients when a new patients data (features) are inputted in the real time database, and send the prediction result to the database.**
 
 **Steps to Replicate:**
 

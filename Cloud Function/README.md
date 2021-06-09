@@ -10,5 +10,5 @@
 8. Set the content of the index.js to suits your specifications (Database reference, ML model & versions)
 9. Deploy the cloud function with "firebase deploy --only functions"
 
-_**Note:** The cloud function is still an unfinished product, due to some error in the cloud function trying to connect to the ML Model. Error:_
+_**Note:** The cloud function is still an unfinished product, due to some error:_
 ![image](https://user-images.githubusercontent.com/74135059/121293195-6a4f2500-c915-11eb-874e-a261c053bac9.png)
